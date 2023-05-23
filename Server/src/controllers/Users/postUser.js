@@ -16,6 +16,7 @@ const postUser = async (req, res) => {
     return created ? res.json({ access: true }) : res.status(409).send({ access: false })
   }
   catch(error){
+    console.log(error)
     return res.status(500).send(error)
   }
 }

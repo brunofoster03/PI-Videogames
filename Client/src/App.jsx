@@ -9,14 +9,14 @@ import Menu from './components/Menu/Menu'
 import ErrorPage from './components/errorPage/errorPage'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { setVideogames, setUsername } from './redux/actions'
+import { setVideogames, setUsername, filterGames } from './redux/actions'
 
 function App() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const location = useLocation().pathname
-  // const [access, setAccess] = useState(false)
   const [access, setAccess] = useState(localStorage.getItem('access') === 'true')
+  const [user, setUser] = useState(localStorage.getItem('username') || '')
   const [theme, setTheme] = useState('dark')
   const getVideogames = async () => {
     try{
@@ -29,9 +29,15 @@ function App() {
   useEffect(() => {
     getVideogames()
   },[])
+  const filters = () => {
+    dispatch(filterGames({option: 'filter', condition: 'all'}))
+    dispatch(filterGames({option: 'origin', condition: 'all'}))
+    dispatch(filterGames({option: 'order', condition: 'relevant'}))
+  }
   const register = async (userData) => {
     const { username, email, password } = userData
     const ENDPOINT = 'http://localhost:3001/user/create'
+    filters()
     try{
       const { data: { access } } = await axios.post(ENDPOINT, {
         username,
@@ -49,6 +55,9 @@ function App() {
   const login = async (userData) => {
     const { username, password } = userData
     const ENDPOINT = 'http://localhost:3001/user/auth'
+    if(username !== user){
+      filters()
+    }
     try{
       const { data: { access }} = await axios.post(ENDPOINT, {
         username,
@@ -66,8 +75,12 @@ function App() {
   }
   useEffect(() => {
     localStorage.setItem('access', access)
+    localStorage.setItem('username', user)
     !access && navigate('/');
- }, [access]);
+ }, [access, user]);
+  useEffect(() => {
+    dispatch(setUsername(user))
+  },[user])
   return (
     <>
       {location !== '/' && <Menu access={setAccess}/>}

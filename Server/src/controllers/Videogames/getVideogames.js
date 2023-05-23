@@ -22,8 +22,8 @@ const getVideogames = async (req, res) => {
     dbVideogames.forEach(videogame => {
       videogame.genres = videogame.genres.map(genre => genre.name)
     })
-
-    if(videogames.length > 1) return res.json(videogames.concat(dbVideogames))
+    console.log(videogames)
+    if(videogames.length > dbVideogames.length) return res.json(videogames.concat(dbVideogames))
     const { data: { results: results1 } } = await axios(`${ENDPOINT}?key=${API_KEY}&page_size=40`)
     const { data: { results: results2 } } = await axios(`${ENDPOINT}?key=${API_KEY}&page_size=40&page=2`)
     const { data: { results: results3 } } = await axios(`${ENDPOINT}?key=${API_KEY}&page_size=40&page=3`) 

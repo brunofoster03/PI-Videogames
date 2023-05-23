@@ -88,7 +88,7 @@ export default function Cards() {
   }
   return (
     <div className='Cards'>
-      {videogames?.length > 0 ? (
+      {videogames?.length > (videogames?.filter(game => game.id.toString().includes('-')).length || 0) ? (
         <>
           <div className='Cards-Page'><button name='prev' onClick={handleChangePage}><img name='prev' src={leftArrow}/></button><input value={page} onChange={handleInputPage} onKeyDown={handleKeyDown} onBlur={handleBlurPage} onFocus={handleInputFocus}/><button name='next' onClick={handleChangePage}><img name='next' src={rightArrow}/></button></div>
           {gamesPage?.map(game => (
