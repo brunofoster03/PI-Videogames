@@ -1,0 +1,242 @@
+.Form-Login{
+  width: clamp(175px, 100%, 350px);
+  height: clamp(300px, 100%, 600px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 30px;
+  color: #F5F5F5;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  flex-direction: column;
+  font-size: 1.8rem;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.Form-Login-Form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.Form-Login-Form h1{
+  text-shadow: 0px 0px 5px black;
+  color: #3498DB;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.Form-Login-Form form{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.Form-Login-Form form div{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: relative;
+}
+
+.Form-Login-Form form input{
+  background: none;
+  outline: 2px solid #F5F5F5;
+  border: none;
+  width: clamp(100px, 100%, 200px);
+  height: clamp(20px, 30px, 40px);
+  border-radius: 8px;
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  color: #F5F5F5;
+  font-size: 1rem;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1), 
+              0px 6px 6px rgba(0, 0, 0, 0.2), 
+              0px 0px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.Form-Login-Form form input:hover {
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2), 
+              0px 12px 12px rgba(0, 0, 0, 0.3), 
+              0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+.Form-Login-Form form input:focus{
+  outline: 3px solid #F5F5F5;
+}
+.Form-Login-Form form label{
+  text-shadow: 0px 0px 10px rgb(1, 1, 1);
+}
+
+.Form-Login-Form-TypePassword{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: clamp(20px, 30px, 40px);
+  width: clamp(20px, 30px, 40px);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px black;
+  background: #F5F5F5;
+}
+.Form-Login-Form-TypePassword img{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  height: clamp(10px, 20px, 30px);
+  width: clamp(10px, 20px, 30px);
+}
+
+.Form-Login-Form-Button{
+  width: clamp(50px, 100px, 100px);
+  height: clamp(30px, 40px, 40px);
+  outline: 3px solid #3498DB;
+  transition: outline-offset 0.1s ease-out;
+  border-radius: 5px;
+  border: 1px solid #3498DB;
+  background: #3498DB;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px black;
+  color: #F5F5F5;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Alata', sans-serif;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  white-space: nowrap;
+}
+
+.Form-Login-Form-Button:is(:hover, :focus){
+  outline-offset: 3px;
+}
+
+
+.Form-Login-Left{
+  animation: LoginLeft 0.5s ease-in-out forwards;
+  pointer-events: none;
+}
+.Form-Login-Right{
+  animation: LoginRight 0.5s ease-in-out forwards;
+}
+
+@keyframes LoginRight{
+  0%{
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+@keyframes LoginLeft{
+  0%{
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  70%{
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes shakeButton{
+  0%{
+    transform: translateX(0px);
+  }
+  25%{
+    transform: translateX(-5px);
+  }
+  50%{
+    transform: translateX(5px);
+  }
+  75%{
+    transform: translateX(-5px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+.Form-Login-Form p{
+  font-size: 1.2rem;
+  color: #FF4136;
+  visibility: hidden;
+  opacity: 0;
+}
+.Form-Login-Form-Error{
+  animation: userorpasswordError 4.0s ease forwards;
+}
+.Form-Login-Form-ErrorHidden{
+  animation: userorpasswordErrorHidden 0.1s ease forwards;
+}
+
+@keyframes userorpasswordErrorHidden{
+  0%{
+    visibility: visible;
+    opacity: 1;
+  }
+  100%{
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes userorpasswordError{
+  0%{
+    visibility: visible;
+    opacity: 0;
+  }
+  2%{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(5%);
+  }
+  4%{
+    transform: translateX(-5%);
+  }
+  6%{
+    transform: translateX(5%);
+  }
+  8%{
+    transform: translateX(-5%);
+  }
+  10%{
+    transform: translateX(0);
+  }
+  100%{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.Form-Login-Form-Button-Disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.Form-Login-Form-Button-Disabled:hover{
+  outline-offset: 0;
+}

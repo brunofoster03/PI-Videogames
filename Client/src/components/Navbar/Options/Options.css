@@ -1,0 +1,162 @@
+.Options{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.Options-Button{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #BD3232;
+  z-index: 1;
+  cursor: pointer;
+}
+.Options-Button-Active{
+  box-shadow: 0 8px 12px rgba(255, 255, 204, 0.5);
+  transform: translateY(-2px);
+}
+.Options-Options-Button-Active{
+  box-shadow: 0px 0px 5px rgba(255, 255, 204, 0.5) !important;
+}
+
+.Options-Button img{
+  width: 25px;
+  height: 25px;
+}
+
+.Options-Options{
+  width: 45px;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.Options-Filter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Options-Filter-Genres, .Options-Filter-Origin, .Options-Order{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Options-Filter-Genres-Button, .Options-Order-Button, .Options-Filter-Origin-Button, .Options-Order-Button{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out, box-shadow 0.1s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:is(.Options-Filter-Genres-Button, .Options-Order-Button, .Options-Filter-Origin-Button, .Options-Order-Button) img{
+  pointer-events: none;
+  width: 30px;
+  height: 30px;
+}
+.Options-Filter-Genres-Button{
+  transform: translateX(100%);
+  background: #FF8C00;
+}
+.Options-Filter-Origin-Button{
+  background: #FF8C00;
+}
+.Options-Order-Button{
+  transform: translateX(-100%);
+  background: #FF8C00;
+}
+
+.Options-Filter-Genres-Button-Active{
+  transform: translateX(-20%);
+}
+.Options-Order-Button-Active{
+  transform: translateX(20%);
+}
+
+.Options-Options-Active{
+  transform: translateX(-300%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.Options-Table{
+  background: #F5F5F5;
+  position: absolute;
+  top: 100%;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Exo 2', sans-serif;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: inset 0px 8px 12px -4px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+}
+
+.Options-Table tbody{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: hidden;
+}
+
+.Options-Table-ActiveList{
+  visibility: visible;
+}
+
+.Options-Table-FilterGenres tbody{
+  height: fit-content !important;
+  overflow-y: scroll !important;
+}
+
+
+.Options-Table tbody tr{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px;
+  white-space: nowrap;
+}
+
+.Options-Table tbody tr td:nth-of-type(2){
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.Options-Table tbody tr:nth-of-type(even){
+  background: #CCCCCC;
+}
+
+.Options-Table tbody tr:hover{
+  background: #C8E6C9;
+}
+
+.Options-Table-Selected{
+  background: #A5D6A7 !important;
+}

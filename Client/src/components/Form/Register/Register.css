@@ -1,0 +1,356 @@
+.Form-Register{
+  width: clamp(175px, 100%, 350px);
+  height: clamp(300px, 100%, 600px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 30px;
+  color: #F5F5F5;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  flex-direction: column;
+  font-size: 1.8rem;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.Form-Register-Form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.Form-Register-Form h1{
+  text-shadow: 0px 0px 5px black;
+  color: #FFA07A;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.Form-Register-Form form{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.Form-Register-Form form div{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: relative;
+}
+/* .Form-Register-Form form div:nth-child(odd){
+  background: red;
+}
+.Form-Register-Form form div:nth-child(even){
+  background: yellow;
+} */
+
+.Form-Register-Form form div input[name='confirm_password']{
+  margin-top: 5px;
+}
+
+.Form-Register-Form form input{
+  background: none;
+  outline: 2px solid #F5F5F5;
+  border: none;
+  width: clamp(100px, 100%, 200px);
+  height: clamp(20px, 30px, 40px);
+  border-radius: 8px;
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  color: #F5F5F5;
+  font-size: 1rem;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1), 
+              0px 6px 6px rgba(0, 0, 0, 0.2), 
+              0px 0px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.Form-Register-Form form input::before{
+  content: 'hola' !important;
+}
+
+.Form-Register-Form-Invalid{
+  outline: 2px solid #FF4136 !important;
+}
+
+
+.Form-Register-Form form input:hover {
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2), 
+              0px 12px 12px rgba(0, 0, 0, 0.3), 
+              0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+.Form-Register-Form form input:focus{
+  outline: 3px solid currentColor;
+}
+/* .Form-Register-Form form input:is(:-webkit-autofill, :-webkit-autofill:hover, :-webkit-autofill:focus){
+  -webkit-text-fill-color: #F5F5F5;
+  box-shadow: 0 0 0px 40rem #1B1C1E inset;
+  caret-color: white;
+}
+.Form-Register-Form form label{
+  text-shadow: 0px 0px 10px rgb(1, 1, 1);
+} */
+
+.Form-Register-Form-Button{
+  width: clamp(50px, 100px, 100px);
+  height: clamp(30px, 40px, 40px);
+  outline: 3px solid #FFA07A;
+  transition: all 0.1s ease-out;
+  border-radius: 5px;
+  border: 1px solid #FFA07A;
+  background: #FFA07A;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px black;
+  color: #F5F5F5;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Alata', sans-serif;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  white-space: nowrap;
+}
+
+.Form-Register-Form-Button:is(:hover, :focus){
+  outline-offset: 3px;
+}
+
+
+.Form-Register-Left{
+  animation: RegisterLeft 0.5s ease-in-out forwards;
+  pointer-events: none;
+}
+.Form-Register-Right{
+  animation: RegisterRight 0.5s ease-in-out forwards;
+}
+
+@keyframes RegisterRight{
+  0%{
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+@keyframes RegisterLeft{
+  0%{
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  70%{
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
+
+@keyframes shakeError{
+  0%{
+    transform: rotateZ(0deg) translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    }
+  25%{
+    transform: rotateZ(10deg) translateX(0);
+    opacity: 1;
+    pointer-events: all;
+    }
+  50%{
+    transform: rotateZ(-10deg);
+    }
+  75%{
+    transform: rotateZ(10deg);
+    }
+  100%{
+    transform: rotateZ(0deg);
+    }    
+}
+
+.Form-ErrorImage{
+  width: clamp(15px, 25px, 25px);
+  height: clamp(15px, 25px, 25px);
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  visibility: hidden;
+}
+.Form-ErrorImage-Animation{
+  visibility: visible;
+  animation: shakeError 0.5s ease forwards;
+}
+.Form-Register-Form div:nth-child(3) .Form-ErrorImage{
+  bottom: calc(4px + clamp(20px, 30px, 40px) + 6px);
+}
+
+.Form-Register-Form div:nth-child(3) .Form-ErrorImage::before{
+  content: 'Aviso';
+}
+
+/* .Form-Register-Form form div div{
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.Form-Register-Form form div:nth-child(1) div::before{
+  content: url(../../Images/errorForm.png);
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  position: absolute;
+  left: -20%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Form-Register-Form form div:nth-child(2) div::before{
+  content: url(../../Images/errorForm.png);
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  position: absolute;
+  left: -20%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Form-Register-Form form div:nth-child(3) div:nth-of-type(1)::before{
+  content: url(../../Images/errorForm.png);
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  position: absolute;
+  left: -20%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.Form-Register-UsernameError{
+  font-size: 15px;
+  background: #FF4136;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 15px;
+  outline: 2px solid black;
+  color: #F5F5F5;
+  text-shadow: 1px 1px 5px black;
+  position: absolute;
+  transform: translateX(-95%);
+  visibility: hidden;
+}
+
+.Form-Register-UsernameError-Animation{
+  animation: errorPop 0.3s ease forwards;
+}
+
+@keyframes errorPop{
+  from{
+    visibility: visible;
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes userLoader{
+  0%{
+    transform: scale(0);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.Form-Username-Check{
+  width: 20px !important;
+  height: 20px !important;
+  position: absolute !important;
+  bottom: 6px;
+  right: 15px;
+}
+.Form-Username-Loader::before,
+.Form-Username-Loader::after{
+  content: '';
+  animation: userLoader 2s linear infinite;
+  border: 2px solid #FFF;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  left: -2px;
+  top: -2px;
+}
+.Form-Username-Loader::after{
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+.Form-Username-Check img{
+  position: absolute;
+  visibility: hidden;
+  width: 20px;
+  height: 20px;
+}
+.Form-Username-Checked-Visible{
+  animation: checkVisible 0.2s ease-in-out forwards;
+}
+.Form-Username-Checked-Hidden{
+  animation: checkHidden 0.2s ease-in-out forwards;
+}
+@keyframes checkHidden{
+  0%{
+    opacity: 1;
+    visibility: visible;
+  }
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes checkVisible{
+  0%{
+    opacity: 0;
+    visibility: visible;
+  }
+  100%{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.Form-Register-Form-Button-Disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.Form-Register-Form-Button-Disabled:hover{
+  outline-offset: 0;
+}

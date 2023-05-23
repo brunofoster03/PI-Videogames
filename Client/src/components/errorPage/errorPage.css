@@ -1,0 +1,46 @@
+.errorPage{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorPage h1{
+  margin: 0;
+  font-size: 10rem;
+  font-family: 'Exo 2', sans-serif;
+  color: #FFFFCC;
+  text-shadow: 2px 2px #1A2B40, 4px 4px #1A2B40, 6px 6px #1A2B40;
+}
+
+.errorPage h3{
+  margin: 0;
+  font-size: 2rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #F5F5F5;
+  text-shadow: 2px 2px 5px black;
+}
+
+.errorPage p{
+  font-size: 1.5rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #F5F5F5;
+  text-shadow: 2px 2px 5px black;
+}
+
+.errorPage button{
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bold;
+  color: #F5F5F5;
+  background: #1B1C1E;
+}

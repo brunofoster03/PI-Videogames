@@ -1,0 +1,23 @@
+.Circle-Loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #1B1C1E;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: circleLoaderRotation 1s linear infinite;
+}
+.Circle-Loader-White{
+  border: 5px solid #F5F5F5 !important;
+  border-bottom-color: #FF6600 !important;
+}
+
+@keyframes circleLoaderRotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 

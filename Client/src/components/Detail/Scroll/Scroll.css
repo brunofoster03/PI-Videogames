@@ -1,0 +1,52 @@
+.Detail-Scroll-Cont img{
+  height: auto;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  background-size: contain;
+  user-select: none;
+}
+
+.Detail-Scroll-Cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px black;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  position: relative;
+}
+
+.Detail-Scroll-Prev, .Detail-Scroll-Next{
+  position: absolute;
+  z-index: 10;
+  width: 20%;
+  height: 100%;
+  transition: all 0.2s ease;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.Detail-Scroll-Prev{
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  justify-content: flex-start;
+
+}
+.Detail-Scroll-Next{
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  justify-content: flex-end;
+}
+:is(.Detail-Scroll-Prev, .Detail-Scroll-Next) img{
+  width: 100%;
+  height: auto;
+  filter: invert(100%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+:is(.Detail-Scroll-Prev, .Detail-Scroll-Next):hover{
+  opacity: 1;
+}
